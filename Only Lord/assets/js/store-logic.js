@@ -3,36 +3,41 @@
    ========================================================================== */
 
 const MI_TELEFONO_WHATSAPP = "59162276138";
-const CODIGO_DESCUENTO_VIP = "ANIVERSARIO";
-const PORCENTAJE_DESCUENTO = 50;
+const CODIGOS_DESCUENTO = {
+    "ONLYLORD": 10,
+    "PROPOSITO": 15
+};
 
 const PLAYLIST_CURSOS_YT = "https://youtube.com/playlist?list=PLWw6Mm4O7Oz0&si=hoE38sSsruOortGy";
 const PLAYLIST_MULTITRACKS_GRATIS_YT = "https://youtube.com/playlist?list=PLCxE4itUOy5CQJ_Qdf617buH2ZrT6sWKA&si=XgAgkO-yx8VmDD70";
 
 const LIBRERIA_MULTITRACKS = [
-    { id: "alma-mia", titulo: "ALMA MIA", artista: "DENICHER POL", precio: 15, ytId: "4TulfAu8AeU", acorde: "Fa Mayor", tempo: "130 bpm", cantidadTracks: 17, pesoTrack: "192 Mb", sampleRate: "44.1 kHz", tags: ["worship", "orquestal", "piano", "strings"], stems: ["Arp Strings", "Arp", "Bass", "Bells", "Brass cinematic", "Click Track", "Drums Live", "EG AC", "EG", "Fx", "Guia", "Pad", "Piano", "Strings Bass", "Strings", "Violines 1 y 2"] },
-    { id: "cantaremos", titulo: "CANTAREMOS DE TU GRAN AMOR", artista: "BARAK / ONLY LORD", precio: 15, ytId: "QQS3hc00RK4", acorde: "Sol Menor", tempo: "142 bpm", cantidadTracks: 20, pesoTrack: "79.3 Mb", sampleRate: "44.1 kHz", tags: ["worship", "adoracion", "live", "brass"], stems: ["Arp 1 y 2", "Bass", "Brass", "Click Track", "Drop", "Drums Live", "EG 1 y 2", "Fx", "Guia", "Lead 1 y 2", "Loop", "Pads", "Pluck", "Synth", "Synth Bass", "Vox 1 y 2"] },
+    { id: "intro-yeshua-hamashiaj", titulo: "INTRO + YESHUA HAMASHIAJ", artista: "MONTE SANTO EN CONCIERTO", precio: 15, ytId: "P6edqId1N48", acorde: "Mib Menor", tempo: "140 bpm", cantidadTracks: 15, pesoTrack: "83 Mb", sampleRate: "44.1 kHz", tags: ["intro", "worship", "live", "monte santo"], stems: ["AC", "Bass", "Choir", "Click Track", "Drums Live", "EG 1 – 4", "Guia", "Fx & Loop", "Keys 1 y 2", "Orq", "Piano"] },
     { id: "en-los-montes", titulo: "EN LOS MONTES LEGADO", artista: "MARCOS WITT", precio: 15, ytId: "zGiTsZVtQ9A", acorde: "Re Menor", tempo: "116 bpm", cantidadTracks: 26, pesoTrack: "102 Mb", sampleRate: "44.1 kHz", tags: ["clasico", "rock", "worship", "brass"], stems: ["Arp Bells", "Bass", "Clap", "Click Track", "Drop 1 y 2", "Drums Live", "Dubstep Drop", "EG 1, 2 y 3", "Fx", "Guia", "Metales", "Pads", "Percusion", "Pluck 1, 2 y 3", "Synth 1, 2 y 3", "Synth Bass 1 y 2", "Vox"] },
-    { id: "hay-libertad-remix", titulo: "HAY LIBERTAD REMIX", artista: "ART AGUILERA / ONLY LORD", precio: 15, ytId: "9h0NwcsWMNE", acorde: "Re Menor", tempo: "150 bpm", cantidadTracks: 22, pesoTrack: "67 Mb", sampleRate: "44.1 kHz", tags: ["remix", "edm", "electro", "dance"], stems: ["Arp", "Bass", "Click Track", "Coros", "Drums Live", "EG 1 y 2", "EG AC", "Fx", "Guia", "Keys", "Pad 1 y 2", "Lead 1 y 2", "Piano", "Pluck", "Synth", "Synth Bass", "Vox"] },
     { id: "intro-lion", titulo: "INTRO LION", artista: "BRANDON LAKE", precio: 15, ytId: "NHieltD_310", acorde: "Re Menor", tempo: "134 bpm", cantidadTracks: 15, pesoTrack: "28 Mb", sampleRate: "44.1 kHz", tags: ["intro", "worship", "synth", "live"], stems: ["AC", "Bass", "Click Track", "Drums Live", "EG 1 y 2", "Guia", "Keys 1, 2 y 3", "Loop y Fx", "Piano", "Synth Bass 1 y 2", "Vox"] },
     { id: "intro-concierto", titulo: "INTRO CONCIERTO", artista: "MONTE SANTO", precio: 15, ytId: "BQFtmlfKr0Y", acorde: "Re Mayor", tempo: "134 bpm", cantidadTracks: 15, pesoTrack: "22 Mb", sampleRate: "44.1 kHz", tags: ["intro", "worship", "keys", "strings"], stems: ["Bass", "Click Track", "Drums", "EG 1, 2 y 3", "Guia", "Keys 1 y 2", "Loop y Fx", "Pad", "Percusion", "Piano", "Strings"] },
+    { id: "venga-tu-reino", titulo: "VENGA TU REINO", artista: "HILLSONG / ONLY LORD", precio: 15, ytId: "ipMtyBpOgSU", acorde: "Si Menor", tempo: "150 bpm", cantidadTracks: 15, pesoTrack: "75 Mb", sampleRate: "44.1 kHz", tags: ["worship", "hillsong", "live", "strings"], stems: ["Arp", "Bass", "Bells", "Click Track", "Drums Live", "EG 1 y 2", "Fx", "Keys", "Guia", "Piano", "Strings", "Synth Bass", "Voz", "Vox"] },
+    { id: "medley-eres-fiel-ag", titulo: "MEDLEY ERES FIEL", artista: "AG MUSIC", precio: 30, ytId: "pp6rCjdzHGQ", acorde: "Variable", tempo: "Variable", cantidadTracks: 18, pesoTrack: "193 Mb", sampleRate: "44.1 kHz", tags: ["medley", "worship", "guitarras", "mix"], stems: ["Arp", "Bass", "Bells", "Click Track", "Drums Live", "EG 1 y 2", "Guia", "Fx & Loop", "Keys 1 y 2", "Lead", "Pad", "Piano", "Synth Bass", "Vox", "Voz Guia"] },
+    { id: "cantaremos", titulo: "CANTAREMOS DE TU GRAN AMOR", artista: "BARAK / ONLY LORD", precio: 15, ytId: "QQS3hc00RK4", acorde: "Sol Menor", tempo: "142 bpm", cantidadTracks: 20, pesoTrack: "79.3 Mb", sampleRate: "44.1 kHz", tags: ["worship", "adoracion", "live", "brass"], stems: ["Arp 1 y 2", "Bass", "Brass", "Click Track", "Drop", "Drums Live", "EG 1 y 2", "Fx", "Guia", "Lead 1 y 2", "Loop", "Pads", "Pluck", "Synth", "Synth Bass", "Vox 1 y 2"] },
+    { id: "hay-libertad-remix", titulo: "HAY LIBERTAD REMIX", artista: "ART AGUILERA / ONLY LORD", precio: 15, ytId: "9h0NwcsWMNE", acorde: "Re Menor", tempo: "150 bpm", cantidadTracks: 22, pesoTrack: "67 Mb", sampleRate: "44.1 kHz", tags: ["remix", "edm", "electro", "dance"], stems: ["Arp", "Bass", "Click Track", "Coros", "Drums Live", "EG 1 y 2", "EG AC", "Fx", "Guia", "Keys", "Pad 1 y 2", "Lead 1 y 2", "Piano", "Pluck", "Synth", "Synth Bass", "Vox"] },
+    { id: "mix-naciones", titulo: "MIX NACIONES", artista: "NEW WINE", precio: 25, ytId: "CdCnEwtuaTU", acorde: "Variable", tempo: "Variable", cantidadTracks: 15, pesoTrack: "160 Mb", sampleRate: "44.1 kHz", tags: ["medley", "worship", "brass", "live"], stems: ["Arp", "Acordeon", "Bass", "Brass", "Click Track", "Drums Live", "EG 1 y 2", "EG AC", "Guia", "Pad", "Percussion", "Piano", "Sax", "Violin"] },
+    { id: "salmos-99", titulo: "SALMOS 99", artista: "NEW WINE", precio: 15, ytId: "EiE_1wigCRU", acorde: "La Menor", tempo: "135 bpm", cantidadTracks: 11, pesoTrack: "52 Mb", sampleRate: "44.1 kHz", tags: ["worship", "brass", "live", "piano"], stems: ["Brass", "Bass", "Click Track", "Drums Live", "EG 1 y 2", "Fx", "Guia", "Lead", "Percusion", "Piano"] },
+    { id: "remolino", titulo: "REMOLINO", artista: "NEW WINE", precio: 15, ytId: "WLNGleSSh2M", acorde: "Sol Menor", tempo: "172 bpm", cantidadTracks: 14, pesoTrack: "56 Mb", sampleRate: "44.1 kHz", tags: ["worship", "jubilo", "brass", "live"], stems: ["Brass", "Bass", "Click Track", "Drums Live", "EG 1 y 2", "EG AC", "Fx", "Guia", "Keys", "Lead", "Loop", "Pluck", "Strings"] },
+    { id: "salmos-133", titulo: "SALMOS 133 / SOBRENATURAL", artista: "NEW WINE", precio: 20, ytId: "b5d5j3CW6Vo", acorde: "Variable", tempo: "Variable", cantidadTracks: 17, pesoTrack: "96 Mb", sampleRate: "44.1 kHz", tags: ["worship", "medley", "brass", "live"], stems: ["AC", "Bass", "Brass", "Click Track", "Coros", "Drums Live", "EG", "Guiro", "Guia", "Keys 1 y 2", "Percusion", "Piano", "Sax", "Trompetas", "Voz"] },
+    { id: "lo-que-dios-dice", titulo: "LO QUE DIOS DICE QUE SOY", artista: "ADORACION IGLESIA CRISTIANA", precio: 15, ytId: "w_LFCopstUk", acorde: "Fa# Mayor", tempo: "105 bpm", cantidadTracks: 12, pesoTrack: "61 Mb", sampleRate: "44.1 kHz", tags: ["worship", "soft", "strings", "piano"], stems: ["Arp", "Bass", "Brass", "Click Track", "Drums Live", "EG 1 y 2", "Guia", "Loop", "Piano", "Strings", "Voz"] },
+    { id: "alma-mia", titulo: "ALMA MIA", artista: "DENICHER POL", precio: 15, ytId: "4TulfAu8AeU", acorde: "Fa Mayor", tempo: "130 bpm", cantidadTracks: 17, pesoTrack: "192 Mb", sampleRate: "44.1 kHz", tags: ["worship", "orquestal", "piano", "strings"], stems: ["Arp Strings", "Arp", "Bass", "Bells", "Brass cinematic", "Click Track", "Drums Live", "EG AC", "EG", "Fx", "Guia", "Pad", "Piano", "Strings Bass", "Strings", "Violines 1 y 2"] },
     { id: "medley-ii", titulo: "MEDLEY II", artista: "AG MUSIC", precio: 25, ytId: "4iGNPJgOOIw", acorde: "Variable", tempo: "Variable", cantidadTracks: 20, pesoTrack: "171 Mb", sampleRate: "44.1 kHz", tags: ["medley", "worship", "guitarras", "mix"], stems: ["Arp", "Bass", "Bells", "Click Track", "Drums Live", "EG 1, 2 y 3", "EG Amb", "EG Clean", "EG Mute", "Guia", "Keys", "Loop", "Organ", "Piano", "Pluck", "Strings", "Synth", "Voz"] },
     { id: "medley-celebra", titulo: "MEDLEY CELEBRA VICTORIOSO", artista: "BRIMMER / ONLY LORD", precio: 33, ytId: "R52eoZr_sWg", acorde: "Variable", tempo: "Variable", cantidadTracks: 23, pesoTrack: "232 Mb", sampleRate: "44.1 kHz", tags: ["medley", "jubilo", "worship", "brass"], stems: ["Bass", "Brass", "Click Track", "Drums Live", "EG 1 - 6", "Fx", "Keys 1, 2, 3 y 4", "Guia", "Loop y Percusion", "Pad", "Piano", "Pluck", "Synth Lead", "Synth Bass", "Violin"] },
-    { id: "estoy-convencido", titulo: "ESTOY CONVENCIDO", artista: "AVERLY MORRILLO / WORSHIP BAND LIVE", precio: 15, ytId: "OscK7rdACjc", acorde: "Mi Mayor", tempo: "127 bpm (6/4)", cantidadTracks: 16, pesoTrack: "75 Mb", sampleRate: "44.1 kHz", tags: ["worship", "balada", "live", "strings"], stems: ["Arp", "Bass", "Bells", "Click Track", "Drums Live", "EG", "EG AC", "Fx", "Keys", "Guia", "Pad 1 y 2", "Piano", "Strings", "Synth 1 y 2"] },
-    { id: "venga-tu-reino", titulo: "VENGA TU REINO", artista: "HILLSONG / ONLY LORD", precio: 15, ytId: "ipMtyBpOgSU", acorde: "Si Menor", tempo: "150 bpm", cantidadTracks: 15, pesoTrack: "75 Mb", sampleRate: "44.1 kHz", tags: ["worship", "hillsong", "live", "strings"], stems: ["Arp", "Bass", "Bells", "Click Track", "Drums Live", "EG 1 y 2", "Fx", "Keys", "Guia", "Piano", "Strings", "Synth Bass", "Voz", "Vox"] },
+    { id: "fiesta-desierto-remix", titulo: "FIESTA EN EL DESIERTO REMIX", artista: "MONTE SANTO / WORSHIP BAND LIVE & ARTURY PEPPER", precio: 15, ytId: "_LnW2izFevI", acorde: "Do# Menor", tempo: "125-140 bpm", cantidadTracks: 27, pesoTrack: "76 Mb", sampleRate: "44.1 kHz", tags: ["remix", "worship", "live", "monte santo"], stems: ["Bass", "Bells", "Arp", "BGVS", "Click Track", "Choir 1 y 2", "Drums Live", "EG 1 – 5", "Guia", "Fx", "Keys 1 - 3", "Loop", "Piano", "Pad 1 y 2", "Strings", "Synth 1 - 4", "Voz"] },
+    { id: "estoy-convencido", titulo: "ESTOY CONVENCIDO", artista: "AVERLY MORRILLO / WORSHIP BAND LIVE", precio: 9, ytId: "OscK7rdACjc", acorde: "Mi Mayor", tempo: "127 bpm (6/4)", cantidadTracks: 16, pesoTrack: "75 Mb", sampleRate: "44.1 kHz", tags: ["worship", "balada", "live", "strings"], stems: ["Arp", "Bass", "Bells", "Click Track", "Drums Live", "EG", "EG AC", "Fx", "Keys", "Guia", "Pad 1 y 2", "Piano", "Strings", "Synth 1 y 2"] },
     { id: "intro-nuestro-dios", titulo: "INTRO + NUESTRO DIOS", artista: "MARCO BARRIENTOS", precio: 17, ytId: "14eRH7z7lg4", acorde: "Sol Menor", tempo: "144 bpm", cantidadTracks: 17, pesoTrack: "105 Mb", sampleRate: "44.1 kHz", tags: ["intro", "worship", "rock", "synth"], stems: ["Arp 1 y 2", "Bass", "Bells", "Click Track", "Drums Live", "EG 1, 2 y 3", "Fx", "Guia", "Keys", "Loop", "Pad 1 y 2", "Synth Bass", "Synth"] },
-    { id: "salmos-133", titulo: "SALMOS 133 / SOBRENATURAL", artista: "NEW WINE", precio: 20, ytId: "b5d5j3CW6Vo", acorde: "Variable", tempo: "Variable", cantidadTracks: 17, pesoTrack: "96 Mb", sampleRate: "44.1 kHz", tags: ["worship", "medley", "brass", "live"], stems: ["AC", "Bass", "Brass", "Click Track", "Coros", "Drums Live", "EG", "Guiro", "Guia", "Keys 1 y 2", "Percusion", "Piano", "Sax", "Trompetas", "Voz"] },
     { id: "padre-bueno", titulo: "PADRE BUENO", artista: "ALEX MARQUEZ", precio: 15, ytId: "jD81VUqcRBE", acorde: "Sol Mayor", tempo: "132 bpm", cantidadTracks: 17, pesoTrack: "200 Mb", sampleRate: "48.1 kHz", tags: ["worship", "soft", "strings", "choir"], stems: ["Arp", "Bass", "Bells", "Cello", "Choir", "Click Track", "Drums Live", "EG", "EG AC", "EG Mute", "Guia", "Fx", "Keys", "Pad 1 y 2", "Piano", "Violines"] },
-    { id: "remolino", titulo: "REMOLINO", artista: "NEW WINE", precio: 15, ytId: "WLNGleSSh2M", acorde: "Sol Menor", tempo: "172 bpm", cantidadTracks: 14, pesoTrack: "56 Mb", sampleRate: "44.1 kHz", tags: ["worship", "jubilo", "brass", "live"], stems: ["Brass", "Bass", "Click Track", "Drums Live", "EG 1 y 2", "EG AC", "Fx", "Guia", "Keys", "Lead", "Loop", "Pluck", "Strings"] },
-    { id: "salmos-99", titulo: "SALMOS 99", artista: "NEW WINE", precio: 15, ytId: "EiE_1wigCRU", acorde: "La Menor", tempo: "135 bpm", cantidadTracks: 11, pesoTrack: "52 Mb", sampleRate: "44.1 kHz", tags: ["worship", "brass", "live", "piano"], stems: ["Brass", "Bass", "Click Track", "Drums Live", "EG 1 y 2", "Fx", "Guia", "Lead", "Percusion", "Piano"] },
     { id: "intro-tu-hijo-soy", titulo: "INTRO TU HIJO SOY", artista: "BARAK LIVE / DAVID NOLASCO", precio: 15, ytId: "RjpYd6R5msg", acorde: "Fa# Menor", tempo: "134 bpm", cantidadTracks: 26, pesoTrack: "162 Mb", sampleRate: "44.1 kHz", tags: ["intro", "worship", "live", "choir"], stems: ["Alto 1 y 2", "Arp 1 y 2", "BGVS 1 y 2", "Choir", "Click Track", "Drums Live", "EG 1, 2 y 3", "Guia", "Keys 1 – 4", "Organ", "Percusion", "Piano", "Synth Bass 1 y 2", "Synth Orq", "Tenor", "Vox Fx 1 y 2"] },
-    { id: "salvador", titulo: "SALVADOR", artista: "LA HORMIGA", precio: 10, ytId: "qTNHdnxHd-o", acorde: "Sol Menor", tempo: "118 bpm", cantidadTracks: 12, pesoTrack: "45 Mb", sampleRate: "44.1 kHz", tags: ["rock", "worship", "organ", "live"], stems: ["Bass", "Brass", "Click Track", "Drums Live", "EG 1 y 2", "Guia", "Keys", "Organ", "Fx", "Voz", "Loop"] },
-    { id: "lo-que-dios-dice", titulo: "LO QUE DIOS DICE QUE SOY", artista: "ADORACION IGLESIA CRISTIANA", precio: 15, ytId: "w_LFCopstUk", acorde: "Fa# Mayor", tempo: "105 bpm", cantidadTracks: 12, pesoTrack: "61 Mb", sampleRate: "44.1 kHz", tags: ["worship", "soft", "strings", "piano"], stems: ["Arp", "Bass", "Brass", "Click Track", "Drums Live", "EG 1 y 2", "Guia", "Loop", "Piano", "Strings", "Voz"] },
-    { id: "medley-eres-fiel", titulo: "MEDLEY ERES FIEL", artista: "JORGE PRIVADO", precio: 20, ytId: "ltq4ewmC9aE", acorde: "Variable", tempo: "Variable", cantidadTracks: 13, pesoTrack: "150 Mb", sampleRate: "44.1 kHz", tags: ["medley", "worship", "organ", "rock"], stems: ["Bass", "Brass", "Click Track", "EG 1, 2 y 3", "Guia", "Keys 1 y 2", "Loop", "Piano", "Organ", "Synth Bass"] },
+    { id: "salvador", titulo: "SALVADOR", artista: "LA HORMIGA", precio: 9, ytId: "qTNHdnxHd-o", acorde: "Sol Menor", tempo: "118 bpm", cantidadTracks: 12, pesoTrack: "45 Mb", sampleRate: "44.1 kHz", tags: ["rock", "worship", "organ", "live"], stems: ["Bass", "Brass", "Click Track", "Drums Live", "EG 1 y 2", "Guia", "Keys", "Organ", "Fx", "Voz", "Loop"] },
+    { id: "medley-eres-fiel", titulo: "MEDLEY ERES FIEL", artista: "JORGE PRIVADO", precio: 15, ytId: "ltq4ewmC9aE", acorde: "Variable", tempo: "Variable", cantidadTracks: 13, pesoTrack: "150 Mb", sampleRate: "44.1 kHz", tags: ["medley", "worship", "organ", "rock"], stems: ["Bass", "Brass", "Click Track", "EG 1, 2 y 3", "Guia", "Keys 1 y 2", "Loop", "Piano", "Organ", "Synth Bass"] },
     { id: "cuando-conoci", titulo: "CUANDO YO TE CONOCI", artista: "ALEX ZURDO / GENERACION PENTECOSTAL", precio: 5, ytId: "LnJCi9AvAbE", acorde: "Variable", tempo: "90 bpm", cantidadTracks: 22, pesoTrack: "61 Mb", sampleRate: "44.1 kHz", tags: ["pop", "urban", "worship", "guitarras"], stems: ["Bass", "Click Track", "Drums Live", "EG 1 – 4", "EG AC 1 - 3", "Guia", "Keys 1 - 3", "Loop", "Piano", "Pad", "Synth Bass", "Voz"] },
-    { id: "con-poder", titulo: "CON PODER", artista: "BARAK LIVE / DAVID NOLASCO", precio: 10, ytId: "vVI-M39MZdw", acorde: "Si Menor", tempo: "75 bpm", cantidadTracks: 18, pesoTrack: "103 Mb", sampleRate: "44.1 kHz", tags: ["worship", "live", "rock", "pads"], stems: ["Bass", "Arp", "BGVS", "Click Track", "Drums Live", "EG 1 – 6", "Guia", "Fx", "Keys", "Piano", "Pad", "Voz"] },
-    { id: "hosanna-remix", titulo: "HOSANNA REMIX", artista: "MARCOS BARRIENTOS", precio: 5, ytId: "1HMqnlELzD0", acorde: "Si Menor", tempo: "146 bpm", cantidadTracks: 21, pesoTrack: "98 Mb", sampleRate: "44.1 kHz", tags: ["remix", "worship", "edm", "live"], stems: ["Bass", "Arp", "BGVS", "Click Track", "Drums Live", "EG 1 – 4", "Guia", "Fx", "Keys", "Loop", "Piano", "Pad 1 y 2", "Strings", "Synth 1 - 4", "Voz"] },
-    { id: "fiesta-desierto-remix", titulo: "FIESTA EN EL DESIERTO REMIX", artista: "MONTE SANTO / WORSHIP BAND LIVE & ARTURY PEPPER", precio: 15, ytId: "_LnW2izFevI", acorde: "Do# Menor", tempo: "125-140 bpm", cantidadTracks: 27, pesoTrack: "76 Mb", sampleRate: "44.1 kHz", tags: ["remix", "worship", "live", "monte santo"], stems: ["Bass", "Bells", "Arp", "BGVS", "Click Track", "Choir 1 y 2", "Drums Live", "EG 1 – 5", "Guia", "Fx", "Keys 1 - 3", "Loop", "Piano", "Pad 1 y 2", "Strings", "Synth 1 - 4", "Voz"] }
+    { id: "con-poder", titulo: "CON PODER", artista: "BARAK LIVE / DAVID NOLASCO", precio: 9, ytId: "vVI-M39MZdw", acorde: "Si Menor", tempo: "75 bpm", cantidadTracks: 18, pesoTrack: "103 Mb", sampleRate: "44.1 kHz", tags: ["worship", "live", "rock", "pads"], stems: ["Bass", "Arp", "BGVS", "Click Track", "Drums Live", "EG 1 – 6", "Guia", "Fx", "Keys", "Piano", "Pad", "Voz"] },
+    { id: "hosanna-remix", titulo: "HOSANNA REMIX", artista: "MARCOS BARRIENTOS", precio: 5, ytId: "1HMqnlELzD0", acorde: "Si Menor", tempo: "146 bpm", cantidadTracks: 21, pesoTrack: "98 Mb", sampleRate: "44.1 kHz", tags: ["remix", "worship", "edm", "live"], stems: ["Bass", "Arp", "BGVS", "Click Track", "Drums Live", "EG 1 – 4", "Guia", "Fx", "Keys", "Loop", "Piano", "Pad 1 y 2", "Strings", "Synth 1 - 4", "Voz"] }
 ];
 
 function obtenerPrecioItem(item) {
@@ -43,10 +48,12 @@ function obtenerPrecioItem(item) {
 
 function calcularTotalesCarrito(carrito, codigoDescuento) {
     const subtotal = carrito.reduce((sum, item) => sum + obtenerPrecioItem(item), 0);
-    const codigoValido = codigoDescuento.trim().toUpperCase() === CODIGO_DESCUENTO_VIP;
-    const descuento = codigoValido ? subtotal * (PORCENTAJE_DESCUENTO / 100) : 0;
+    const codigoNormalizado = codigoDescuento.trim().toUpperCase();
+    const porcentajeDescuento = CODIGOS_DESCUENTO[codigoNormalizado] || 0;
+    const codigoValido = porcentajeDescuento > 0;
+    const descuento = codigoValido ? subtotal * (porcentajeDescuento / 100) : 0;
     const total = subtotal - descuento;
-    return { subtotal, descuento, total, codigoValido };
+    return { subtotal, descuento, total, codigoValido, porcentajeDescuento };
 }
 
 function formatearPrecioUSD(monto) {
@@ -393,10 +400,11 @@ function actualizarResumenTotalesCarrito() {
     const elSubtotal = document.getElementById("cart-subtotal");
     const elDescuento = document.getElementById("cart-discount-row");
     const elDescuentoMonto = document.getElementById("cart-discount-amount");
+    const elDescuentoLabel = document.getElementById("cart-discount-label");
     const elTotal = document.getElementById("cart-total-final");
     const elEstadoCodigo = document.getElementById("cart-discount-status");
     const codigo = inputDescuento ? inputDescuento.value : "";
-    const { subtotal, descuento, total, codigoValido } = calcularTotalesCarrito(carrito, codigo);
+    const { subtotal, descuento, total, codigoValido, porcentajeDescuento } = calcularTotalesCarrito(carrito, codigo);
 
     if (elSubtotal) elSubtotal.textContent = formatearPrecioUSD(subtotal);
     if (elTotal) elTotal.textContent = formatearPrecioUSD(total);
@@ -404,7 +412,8 @@ function actualizarResumenTotalesCarrito() {
     if (elDescuento && elDescuentoMonto) {
         if (codigo.trim() && codigoValido) {
             elDescuento.style.display = "flex";
-            elDescuentoMonto.textContent = `- ${formatearPrecioUSD(descuento)} (${PORCENTAJE_DESCUENTO}%)`;
+            if (elDescuentoLabel) elDescuentoLabel.textContent = `${porcentajeDescuento}%`;
+            elDescuentoMonto.textContent = `- ${formatearPrecioUSD(descuento)} (${porcentajeDescuento}%)`;
             if (elEstadoCodigo) {
                 elEstadoCodigo.textContent = "Código aplicado correctamente";
                 elEstadoCodigo.style.color = "var(--onlylord-accent)";
@@ -435,7 +444,7 @@ function despacharCarritoAWhatsApp() {
 
     if (!nombres || !apellidos || !ciudadPais || !celular || !correo || !metodoPago) return;
 
-    const { subtotal, descuento, total, codigoValido } = calcularTotalesCarrito(carrito, codigoDescuento);
+    const { subtotal, descuento, total, codigoValido, porcentajeDescuento } = calcularTotalesCarrito(carrito, codigoDescuento);
 
     let listaProductosTexto = "";
     carrito.forEach((item, idx) => {
@@ -445,7 +454,7 @@ function despacharCarritoAWhatsApp() {
 
     let bloquePrecios = `💰 *Subtotal:* ${formatearPrecioUSD(subtotal)}\n`;
     if (codigoDescuento && codigoValido) {
-        bloquePrecios += `🏷️ *Código de Descuento:* ${codigoDescuento.toUpperCase()} (-${PORCENTAJE_DESCUENTO}%)\n`;
+        bloquePrecios += `🏷️ *Código de Descuento:* ${codigoDescuento.toUpperCase()} (-${porcentajeDescuento}%)\n`;
         bloquePrecios += `⬇️ *Descuento Aplicado:* -${formatearPrecioUSD(descuento)}\n`;
     } else if (codigoDescuento) {
         bloquePrecios += `⚠️ *Código ingresado:* ${codigoDescuento.toUpperCase()} (no válido)\n`;
